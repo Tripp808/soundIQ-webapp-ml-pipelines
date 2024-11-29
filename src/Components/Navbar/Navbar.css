@@ -1,0 +1,212 @@
+/* General Navbar Styling */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 40px 120px;
+}
+
+.nav-logo {
+  font-family: Outfit, sans-serif;
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.logo-highlight {
+  color: orangered;
+}
+
+/* Navigation Menu (Desktop View) */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-size: 21px;
+  gap: 90px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  position: relative;
+  cursor: pointer;
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500;
+}
+
+.nav-menu li a {
+  text-decoration: none; /* No default underline */
+  color: inherit; /* Inherit white text color */
+}
+
+.nav-menu li:hover {
+  color: white; /* text color stays white on hover */
+}
+
+/* Underline Effect */
+.nav-menu li::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Space below the text */
+  left: 0;
+  width: 0%;
+  height: 5px; /* Red underline height */
+  background-color: red;
+  transition: width 0.3s ease; /* Smooth underline transition */
+}
+
+.nav-menu li:hover::after {
+  width: 100%;
+}
+
+/* Retrain Model Button */
+.nav-contact {
+  border-radius: 50px;
+  padding: 10px 38px;
+  background: #fff; /* White background */
+  color: black; /* Black text by default */
+  font-weight: 500; /* Match general button styling */
+  text-decoration: none; /* No underline */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Styles for Retrain Model */
+.nav-contact:hover {
+  background: orangered; /* Red background on hover */
+  color: white; /* White text on hover */
+}
+
+/* Keep text white after hover (pseudo-class for state retention) */
+.nav-contact:focus,
+.nav-contact:active {
+  background: orangered; /* Retain orangred background */
+  color: white; /* Keep text white */
+}
+
+/* Prevent underline effect from general .nav-menu li styles */
+.nav-contact::after {
+  content: none;
+}
+
+/* specificity to prevent general styles from affecting the button */
+.nav-menu li.nav-contact {
+  color: black;
+}
+
+.nav-menu li.nav-contact:hover {
+  color: white;
+}
+
+/* Prevent underline from being applied on hover */
+.nav-menu li.nav-contact:hover::after {
+  display: none;
+}
+
+/* Hamburger Icon (Mobile View) */
+.nav-hamburger {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 24px;
+  z-index: 1100;
+}
+
+.burger-line {
+  background: white;
+  height: 4px;
+  width: 100%;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-hamburger.open .burger-line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.nav-hamburger.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.open .burger-line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Start hidden */
+  height: 100vh;
+  width: 250px;
+  background: rgba(0, 0, 0, 0.9); /* Slightly transparent black */
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+.side-menu.open {
+  transform: translateX(0); /* Slide in */
+  opacity: 1; /* Cross fade */
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 60px;
+}
+
+.side-menu li {
+  font-size: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+  text-align: left;
+}
+
+.side-menu li:hover {
+  color: red;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    margin: 20px 30px;
+  }
+
+  .nav-logo {
+    margin-right: auto; /* logo to the far left */
+  }
+
+  .nav-hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none; /* Hide menu on mobile */
+  }
+
+  .nav-menu.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .side-menu.open {
+    display: none; /* Hide side menu on large screens */
+  }
+}
