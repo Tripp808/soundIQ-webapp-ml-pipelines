@@ -1,4 +1,5 @@
 import "./Hero.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import arrow_btn from "../../assets/arrow_btn.png";
 import play_icon from "../../assets/play_icon.png";
 import pause_icon from "../../assets/pause_icon.png";
@@ -10,15 +11,17 @@ export const Hero = ({
   setPlayStatus,
   playStatus,
 }) => {
+  const navigate = useNavigate(); // Hook for navigation
+
   return (
     <div className="hero">
       <div className="hero-text">
         <p>{heroData.text1}</p>
         <p>{heroData.text2}</p>
       </div>
-      <div className="hero-explore">
-        <p>Explore the features</p>
-        <img src={arrow_btn} alt="" />
+      <div className="hero-explore" onClick={() => navigate("/retrain-model")}>
+        <p>Retrain Your Model</p>
+        <img src={arrow_btn} alt="Arrow Button" />
       </div>
       <div className="hero-dot-play">
         <ul className="hero-dots">
@@ -39,7 +42,7 @@ export const Hero = ({
           <img
             onClick={() => setPlayStatus(!playStatus)}
             src={playStatus ? pause_icon : play_icon}
-            alt=""
+            alt="Play/Pause Icon"
           />
           <p>See the video</p>
         </div>

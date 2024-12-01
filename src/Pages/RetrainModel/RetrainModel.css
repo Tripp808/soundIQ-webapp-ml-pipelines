@@ -1,33 +1,32 @@
-.retrain-container {
+.retrainContainer {
   text-align: center;
+  background-color: black; /* Black container */
   color: white;
   padding: 50px 20px;
+  margin: 50px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+.title {
+  font-size: 60px;
+  margin-bottom: 30px;
 }
 
-p {
-  font-size: 18px;
-  margin-bottom: 40px;
-}
-
-.retrain-form {
+.retrainForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
-label {
+.label {
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-input[type="file"],
-input[type="text"] {
+.input {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -35,17 +34,23 @@ input[type="text"] {
   width: 300px;
 }
 
-button {
+.button {
   padding: 10px 20px;
   background: orangered;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background: red;
+.button:hover {
+  background: darkred;
+}
+
+.successMessage {
+  margin-top: 20px;
+  font-size: 18px;
+  color: lightgreen;
 }

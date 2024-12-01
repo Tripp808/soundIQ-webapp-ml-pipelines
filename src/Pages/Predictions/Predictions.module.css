@@ -1,35 +1,171 @@
 .predictionsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
   text-align: center;
-  color: white;
-  padding: 50px 20px;
 }
 
 .title {
-  font-size: 60px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 8px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: orangered;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  margin-left: 10px; /* Adjust space between input and button */
+}
+
+.button:hover {
+  background-color: darkred;
+}
+
+.loader {
+  margin-top: 20px;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  color: #fff;
+}
+
+.resultsTitle {
+  font-size: 1.5rem;
+  color: #fff;
   margin-bottom: 20px;
 }
 
-.description {
-  font-size: 20px;
-  margin-bottom: 60px;
-}
-
-.predictionsSection {
+.keys {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.predictionsBox {
-  background-color: rgba(255, 255, 255, 0.2);
+.keyBlue {
+  color: rgb(28, 28, 224);
+  font-weight: bold;
+}
+
+.keyRed {
+  color: rgb(168, 34, 34);
+  font-weight: bold;
+}
+
+/* Scrollable Container for Predictions Table */
+.scrollContainer {
+  max-height: 400px; /* Adjust this height as needed */
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Scrollable Container for Visualization Image */
+.visualizationScrollView {
+  max-height: 400px; /* Adjust this height as needed */
+  overflow-y: auto;
+  width: 100%;
+}
+
+.predictionsTable {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.predictionsTable th,
+.predictionsTable td {
+  border: 1px solid #555;
+  padding: 8px;
+  text-align: center;
+}
+
+.predictionsTable th {
+  background-color: #444;
+}
+
+.successPredictionRow {
+  background-color: #007bff30;
+}
+
+.failurePredictionRow {
+  background-color: #ff525230;
+}
+
+.visualizationContainer {
+  margin-top: 30px;
+}
+
+.visualizationImage {
+  width: 100%;
+  height: auto;
   border-radius: 10px;
-  padding: 50px;
-  max-width: 300px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.predictionsBox:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.3);
+.visualizationDescription {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #333;
+  line-height: 1.5;
 }

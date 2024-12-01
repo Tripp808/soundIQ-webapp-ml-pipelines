@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link for routing
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="nav">
-      {/* Logo */}
       <div className="nav-logo">
         Sound<span className="logo-highlight">IQ</span>
       </div>
 
-      {/* Hamburger Icon */}
       <div
         className={`nav-hamburger ${isMenuOpen ? "open" : ""}`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -22,39 +23,41 @@ const Navbar = () => {
         <div className="burger-line"></div>
       </div>
 
-      {/* Navigation Menu */}
       <ul className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
-        <li>
+        <li className={isActive("/") ? "active" : ""}>
           <Link to="/" onClick={() => setIsMenuOpen(false)}>
             Home
           </Link>
         </li>
-        <li>
+        <li className={isActive("/predictions") ? "active" : ""}>
           <Link to="/predictions" onClick={() => setIsMenuOpen(false)}>
             Predictions
           </Link>
         </li>
-        <li className="nav-contact">
+        <li
+          className={`nav-contact ${
+            isActive("/retrain-model") ? "active" : ""
+          }`}
+        >
           <Link to="/retrain-model" onClick={() => setIsMenuOpen(false)}>
             Retrain Model
           </Link>
         </li>
       </ul>
 
-      {/* Side Menu (Dropdown on smaller screens) */}
       <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
         <ul>
-          <li>
+          <li className={isActive("/") ? "active" : ""}>
             <Link to="/" onClick={() => setIsMenuOpen(false)}>
               Home
             </Link>
           </li>
-          <li>
+          <li className={isActive("/predictions") ? "active" : ""}>
             <Link to="/predictions" onClick={() => setIsMenuOpen(false)}>
               Predictions
             </Link>
           </li>
-          <li className="nav-contact">
+          <li className={isActive("/retrain-model") ? "active" : ""}>
             <Link to="/retrain-model" onClick={() => setIsMenuOpen(false)}>
               Retrain Model
             </Link>

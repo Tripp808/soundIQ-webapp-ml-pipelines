@@ -210,3 +210,19 @@
     display: none; /* Hide side menu on large screens */
   }
 }
+
+/* Highlight active item's text */
+.nav-menu li.active a,
+.side-menu li.active a {
+  color: red; /* Red text for the active link */
+  font-weight: bold; /* Optional: Make it bold for better emphasis */
+}
+
+/* Remove underline effect for the active item */
+.nav-menu li.active::after {
+  width: 0;
+}
+
+.side-menu li.active {
+  color: red; /* Red text in the side menu for active item */
+}
