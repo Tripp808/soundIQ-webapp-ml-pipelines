@@ -1,8 +1,8 @@
 import "./Background.css";
 import video1 from "../../assets/video1.mp4";
-import image1 from "../../Assets/image1.png";
-import image2 from "../../Assets/image2.png";
-import image3 from "../../Assets/image3.png";
+// import image1 from "../../Assets/image1.png";
+// import image2 from "../../Assets/image2.png";
+// import image3 from "../../Assets/image3.png";
 import musiclistener from "../../assets/musiclistener.jpg";
 import studio from "../../assets/studio.jpg";
 import musicai from "../../assets/musicai.jpg";
